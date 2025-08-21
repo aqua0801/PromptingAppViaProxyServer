@@ -1,0 +1,40 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+*.user
+*.suo
+*.userprefs
+*.idea/
+*.vscode/
+
+# Rider specific
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Publish folders
+publish/
+*.apk
+*.aab
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Log files
+*.log
+
+# Secrets or local settings
+appsettings.local.json

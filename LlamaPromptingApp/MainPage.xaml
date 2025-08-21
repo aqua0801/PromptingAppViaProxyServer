@@ -1,0 +1,43 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LlamaPromptingApp.MainPage">
+
+    <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- URL row -->
+            <RowDefinition Height="Auto"/>
+            <!-- Prompt row -->
+            <RowDefinition Height="*"/>
+            <!-- Response area -->
+            <RowDefinition Height="Auto"/>
+            <!-- Send button -->
+        </Grid.RowDefinitions>
+
+        <!-- URL input -->
+        <HorizontalStackLayout Grid.Row="0" Spacing="10">
+            <Entry x:Name="entryUrl" 
+                   Placeholder="Enter proxy url" 
+                   HorizontalOptions="FillAndExpand"
+                   WidthRequest="350"/>
+            <Button x:Name="btnSaveUrl" Text="Save Proxy Url" Clicked="OnSaveProxyUrlClick" Margin="0,0,100,0"/>
+            <Button x:Name="btnViewPromptRequest" Text="View Chat Log" Clicked="OnViewChatLogClick"></Button>
+        </HorizontalStackLayout>
+
+        <!-- Prompt input -->
+        <Entry x:Name="entryPrompt" Grid.Row="1" Placeholder="Enter prompt here..." />
+
+        <!-- Response -->
+        <ScrollView Grid.Row="2">
+            <Label x:Name="lblResponse"
+                   Text="Response : "
+                   FontSize="16"
+                   VerticalOptions="FillAndExpand"
+                   LineBreakMode="WordWrap"/>
+        </ScrollView>
+
+        <!-- Send button -->
+        <Button Grid.Row="3" x:Name="btnSendPrompt" Text="Send Prompt" Clicked="OnSendPromptClick"/>
+
+    </Grid>
+</ContentPage>

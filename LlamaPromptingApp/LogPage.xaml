@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LlamaPromptingApp.LogPage"
+             Title="Logs">
+
+    <Grid Padding="10" ColumnSpacing="15" RowSpacing="10">
+        <!-- Define two columns: big left, small right -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Logs list (left side) -->
+        <CollectionView Grid.Column="0"
+                        x:Name="LogsCollection"
+                        SelectionMode="Single"
+                        ItemsSource="{Binding Logs}"
+                        BackgroundColor="LightSlateGray"
+                        SelectionChanged="OnLogSelected">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <HorizontalStackLayout Spacing="5" Padding="2">
+                            <!-- Prompt Cell -->
+                            <Frame 
+                           BorderColor="LightGray"
+                           CornerRadius="5"
+                           Padding="8"
+                           HasShadow="True">
+                                <Label Text="{Binding Prompt}"
+                                FontAttributes="Bold"
+                           LineBreakMode="TailTruncation"/>
+                            </Frame>
+
+                            <!-- Response Cell -->
+                            <Frame 
+                           BorderColor="LightGray"
+                           CornerRadius="5"
+                           Padding="8"
+                           HasShadow="True">
+                                <Label Text="{Binding Response}"
+                                    LineBreakMode="TailTruncation"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Button stack (right side) -->
+        <VerticalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="End">
+            <Button Text="Save" Clicked="OnSaveClicked"/>
+            <Button Text="Save As" Clicked="OnSaveAsClicked"/>
+            <Entry x:Name="entrySaveName" Placeholder="Filename"></Entry>
+            <Button Text="Load" Clicked="OnLoadClicked"/>
+            <Button Text="Back" Clicked="OnBackClicked"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
