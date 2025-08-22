@@ -1,6 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 using CommunityToolkit.Maui;
+/*
+ windows : dotnet publish -c Release -r win-x64 -f net9.0-windows10.0.19041.0 /p:PublishSingleFile=true /p:PublishReadyToRun=true /p:SelfContained=false -p:UseMonoRuntime=false
+ android : dotnet publish -f net9.0-android -c Release
+
+ */
+
 
 namespace LlamaPromptingApp
 {

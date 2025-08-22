@@ -1,12 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+
 
 namespace LlamaPromptingApp
 {
@@ -45,7 +39,8 @@ namespace LlamaPromptingApp
                 Padding = 12,
                 WidthRequest = parentWidth * 0.9,
                 HeightRequest = parentHeight * 0.7,
-                Content = scroll
+                Content = scroll,
+                Opacity = 0.9f
             };
 
             LoadFiles(onLoad, onDelete);
@@ -65,7 +60,7 @@ namespace LlamaPromptingApp
                     var text = File.ReadAllText(file);
                     var token = JToken.Parse(text);
 
-                    var (created, _) = PromptHistoryJsonHelper.FromJToken(token);
+                    var created = PromptHistoryJsonHelper.ToDT(token);
 
                     entries.Add(new SaveFileEntry
                     {

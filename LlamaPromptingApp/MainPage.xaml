@@ -21,7 +21,8 @@
                    HorizontalOptions="FillAndExpand"
                    WidthRequest="350"/>
             <Button x:Name="btnSaveUrl" Text="Save Proxy Url" Clicked="OnSaveProxyUrlClick" Margin="0,0,100,0"/>
-            <Button x:Name="btnViewPromptRequest" Text="View Chat Log" Clicked="OnViewChatLogClick"></Button>
+            <Button x:Name="btnViewPromptRequest" Text="View Chat Log" Clicked="OnViewChatLogClick" Margin="0,0,30,0"></Button>
+            <Label x:Name="lblConnectionInfo" Text="Connection status : Unknown&#10;Latency : 0 ms" VerticalTextAlignment="Center" TextColor="Gray"></Label>
         </HorizontalStackLayout>
 
         <!-- Prompt input -->

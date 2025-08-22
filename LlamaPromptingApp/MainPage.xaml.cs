@@ -21,6 +21,10 @@ namespace LlamaPromptingApp
             _proxyUrl = Preferences.Get(PROXY_URL_STORE_KEY, _proxyUrl);
             _proxyPort = Preferences.Get(PROXY_PORT_STORE_KEY, _proxyPort); 
             this.entryUrl.Text = $"{_proxyUrl}:{_proxyPort}";
+            this._promptResponseSystem.OnConnectionStatusUpdate = (msg, ms) =>
+            {
+                this.lblConnectionInfo.Text = $"Connection status : {msg}{Environment.NewLine}Latency : {ms.TotalMilliseconds} ms";
+            };
         }
 
         private async void OnSendPromptClick(object sender, EventArgs e)
